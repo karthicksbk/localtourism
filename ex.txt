@@ -1,0 +1,25 @@
+<% session.setAttribute("email",email);
+       %>
+
+
+
+<%
+        String email=(String)session.getAttribute("email");
+    if ((email == null) ) {
+%>
+
+
+
+ <form method="post" action="update-process.jsp">
+               <%
+       try{
+           MyCon x=new MyCon();
+ Connection c=x.tcon();
+PreparedStatement pst=c.prepareStatement("select * from onetoone where pid=?");
+ResultSet rs = pst.executeQuery();
+
+   
+
+while(rs.next())
+{
+      %>
